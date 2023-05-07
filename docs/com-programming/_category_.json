@@ -1,0 +1,8 @@
+{
+  "label": "COM Programming",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Concepts for developing code that calls COM interfaces."
+  }
+}

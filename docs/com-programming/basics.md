@@ -100,9 +100,13 @@ if (FAILED(hr) && hr == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
 }
 ```
 
-## Releasing COM objects
+### Releasing COM objects
 
-When you have finished using a COM interface, you should release it with the `release` method:
+Most of the time, you don't need to do anything as COM objects are
+automatically released by `Finalizer` when they go out of scope.
+
+However, if you're manually managing the lifetime of the object (i.e. by calling
+the `.detach()` method), you should release it by calling `.release()`:
 
 ```dart
 fileOpenDialog.release(); // Release the interface

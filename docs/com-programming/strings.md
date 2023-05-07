@@ -36,11 +36,21 @@ above code, you can write:
 final bstr = BSTR.fromString('I am a happy BSTR');
 ```
 
-A debugger that examines the four bytes prior to this location will see a
-32-bit int containing the value 34, representing the length of the string in
-Utf-16.
+A debugger that examines the four bytes prior to this location will see a 32-bit
+int containing the value 34, representing the length of the string encoded in
+UTF-16 (two bytes per char).
 
-You can access the pointer for a `BSTR` using its `.ptr` property.
+For example:
+
+```dart
+  final bstr = BSTR.fromString('I am a happy BSTR');
+  final len = bstr.ptr.cast<Uint32>()[-1];
+  print('Length of bstr: $len');
+  bstr.free();
+```
+
+As shown above, you can access the pointer for a `BSTR` using its `.ptr`
+property.
 
 As with other manually allocated memory, Dart does not garbage collect `BSTR`
 objects; instead, you are responsible for freeing the memory allocated for a

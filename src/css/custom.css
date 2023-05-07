@@ -4,27 +4,27 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Default light-mode primary colors are based on the Dart logo "dark blue" */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: #245797;
+  --ifm-color-primary-dark: #204e88;
+  --ifm-color-primary-darker: #1f4a80;
+  --ifm-color-primary-darkest: #193d6a;
+  --ifm-color-primary-light: #2860a6;
+  --ifm-color-primary-lighter: #2964ae;
+  --ifm-color-primary-lightest: #2f71c4;
+  /* --ifm-code-font-size: 95%; */
+  /* --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1); */
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Default dark-mode primary colors are based on the Dart logo "light blue" */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #5cb4f0;
+  --ifm-color-primary-dark: #3ea6ed;
+  --ifm-color-primary-darker: #2e9fec;
+  --ifm-color-primary-darkest: #1486d5;
+  --ifm-color-primary-light: #7ac2f3;
+  --ifm-color-primary-lighter: #8ac9f4;
+  --ifm-color-primary-lightest: #b7def8;
+  /* --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3); */
 }

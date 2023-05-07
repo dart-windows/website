@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Dart | Windows',
-  tagline: 'A suite of packages to support Windows development with Dart.',
+  tagline: 'A suite of packages to support Windows development with the Dart programming language.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -64,9 +64,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/dart-on-windows-card.png',
       navbar: {
-        title: 'My Site',
+        title: 'Dart | Windows',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Dart | Windows Logo',
           src: 'img/dart-windows-logo.png',
         },
         items: [
@@ -78,7 +78,7 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/dart-windows',
             label: 'GitHub',
             position: 'right',
           },

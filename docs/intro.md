@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Tutorial Intro
 
-Win32 
+Dart | Windows is a suite of packages for working with Windows from the Dart programming language.
 
 ## Getting Started
 

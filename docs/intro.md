@@ -4,18 +4,10 @@ sidebar_position: 1
 
 # Tutorial Intro
 
-Dart | Windows is a suite of packages for working with Windows from the Dart programming language.
-
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Dart | Windows is a suite of packages for working with Windows from the Dart
+programming language. It aims to make it easy to write Dart code that can access
+Windows hardware and system services, using traditional Win32, COM or Windows RT
+APIs calls.
 
 ## Generate a new site
 

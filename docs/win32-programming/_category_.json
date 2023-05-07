@@ -1,0 +1,8 @@
+{
+  "label": "Win32 Programming",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Concepts for developing Win32 code."
+  }
+}

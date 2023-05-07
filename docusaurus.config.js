@@ -72,9 +72,9 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'win32DocSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentation',
           },
           // { to: '/blog', label: 'Blog', position: 'left' },
           {

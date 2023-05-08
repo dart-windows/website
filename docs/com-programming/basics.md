@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Using COM from Dart
 
-Since the Win32 package primarily focuses on providing a lightweight wrapper for
-the underlying Windows API primitives, you can use the same API calls as
-described in Microsoft documentation to create an manipulate objects (e.g.
+Since the `win32` package primarily focuses on providing a lightweight wrapper
+for the underlying Windows API primitives, you can use the same API calls as
+described in Microsoft documentation to create and manipulate objects (e.g.
 `CoCreateInstance` and `IUnknown->QueryInterface`). However, since this
 introduces a certain amount of boilerplate and non-idiomatic Dart code, the
 library also provides some helper functions that reduce the labor compared to a
@@ -39,7 +39,7 @@ object, it is easier to use the `createFromID` static helper function:
 
 ```dart
 final fileDialog2 = IFileDialog2(
-  COMObject.createFromID(CLSID_FileOpenDialog, IID_IFileDialog2));
+    COMObject.createFromID(CLSID_FileOpenDialog, IID_IFileDialog2));
 ```
 
 `createFromID` returns a `Pointer<COMObject>` containing the requested object,
@@ -49,9 +49,9 @@ which can then be cast into the appropriate interface as shown above.
 
 COM allows objects to implement multiple interfaces, but it does not let you
 merely cast an object to a different interface. Instead, returned pointers are
-to a specific interface. However, every COM interface in the Dart Win32 package
-derives from `IUnknown`, so as in other language implementations of COM, you may
-call `queryInterface` on any object to retrieve a pointer to a different
+to a specific interface. However, every COM interface in the `win32` package
+derives from `IUnknown`, so as in other language implementations of COM, you
+may call `queryInterface` on any object to retrieve a pointer to a different
 supported interface.
 
 More information on COM interfaces may be found in the [Microsoft
@@ -105,8 +105,8 @@ if (FAILED(hr) && hr == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
 Most of the time, you don't need to do anything as COM objects are
 automatically released by `Finalizer` when they go out of scope.
 
-However, if you're manually managing the lifetime of the object (i.e. by calling
-the `.detach()` method), you should release it by calling `.release()`:
+However, if you're manually managing the lifetime of the object (i.e. by
+calling the `.detach()`), you should release it by calling `.release()`:
 
 ```dart
 fileOpenDialog.release(); // Release the interface

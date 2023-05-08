@@ -114,12 +114,3 @@ fileOpenDialog.release(); // Release the interface
 
 Often this will be called as part of a `try` / `finally` block, to guarantee
 that the object is released even if an exception is thrown.
-
-### Unloading COM support
-
-When you have finished using COM, you should uninitialize it with the
-following call:
-
-```dart
-CoUninitialize();
-```

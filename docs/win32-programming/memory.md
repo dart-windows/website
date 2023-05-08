@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Native memory management
+# Manual memory management with Dart
 
 Dart is a garbage-collected language. When you create objects (e.g. allocating a
 string to a variable, or instantiating a class), Dart is responsible for

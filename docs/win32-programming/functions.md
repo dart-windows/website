@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-## Calling functions
+# Calling functions
 
 Win32 functions are exposed through `package:win32` as global Dart functions, so
 you can call them just like any other Dart function. For consistency with the

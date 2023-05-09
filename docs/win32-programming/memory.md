@@ -31,7 +31,7 @@ can be used to manage the memory. You can use `pBuffer` with an indexed array
 operator to access the allocated memory, for example:
 
 ```dart
-for (var i=0; i<256; i++) {
+for (var i = 0; i < 256; i++) {
   pBuffer[i] = i % 8;
 }
 ```

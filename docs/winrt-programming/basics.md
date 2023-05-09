@@ -17,8 +17,8 @@ namespace. For example, the [windows_globalization](https://pub.dev/packages/win
 
 To call WinRT APIs, you will typically import the packages that provide the
 specific WinRT APIs required by your application. For example, to use the
-`Calendar` class from the [Windows.Globalization](https://learn.microsoft.com/en-us/uwp/api/windows.globalization) namespace, you would import the `windows_globalization`
-package as follows:
+[Calendar](https://learn.microsoft.com/en-us/uwp/api/windows.globalization.calendar)
+class from the `Windows.Globalization` namespace, you would import the `windows_globalization` package as follows:
 
 ```dart
 import 'package:windows_globalization/windows_globalization.dart';

@@ -55,7 +55,8 @@ the appropriate time.
 
 For simpler methods, the `try`/`finally` pattern works well. But as you add more
 manually-allocated objects, this becomes more unwieldy. For example, consider
-this function, which interrogates Windows for the timestamp when the currently-running process was created:
+this function, which interrogates Windows for the timestamp when the
+currently-running process was created:
 
 ```dart
 DateTime processCreationTime() {

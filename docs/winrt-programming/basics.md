@@ -4,20 +4,53 @@ sidebar_position: 1
 
 # Basic concepts
 
-TODO
+## Overview
+
+The [dartwinrt](https://github.com/dart-windows/dartwinrt) provides an
+idiomatic Dart projection of modern Windows Runtime (WinRT) APIs using Dart
+FFI. This allows you to use WinRT APIs in your Dart applications, including
+Flutter apps with minimal effort.
+
+There are a total of `18` packages, each corresponding to a top-level WinRT
+namespace. For example, the [windows_globalization](https://pub.dev/packages/windows_globalization) package contains the WinRT APIs from the
+[Windows.Globalization](https://learn.microsoft.com/en-us/uwp/api/windows.globalization) namespace.
+
+To call WinRT APIs, you will typically import the packages that provide the
+specific WinRT APIs required by your application. For example, to use the
+`Calendar` class from the [Windows.Globalization](https://learn.microsoft.com/en-us/uwp/api/windows.globalization) namespace, you would import the `windows_globalization`
+package as follows:
+
+```dart
+import 'package:windows_globalization/windows_globalization.dart';
+```
 
 ## Initializing the WinRT
 
-Most of the time you don't need to do anyting as this package ensures that
-threads are implicitly assigned to the multi-threaded apartment (MTA).
+The `dartwinrt` automatically initializes the WinRT with a multi-threaded
+apartment (MTA) as needed, so you typically don't need to take any additional
+steps to use WinRT APIs.
 
-However, if you need to use APIs that only work in a single-threaded apartment
-(STA), you need to call `RoInitialize(RO_INIT_TYPE.RO_INIT_SINGLETHREADED)` to
-initialize the Windows Runtime with a single-threaded apartment.
+:::note
 
-## TODO
+Keep in mind that, if you need to call WinRT APIs that only work in a
+single-threaded apartment (STA), you must initialize the WinRT with a STA by
+calling the `RoInitialize(RO_INIT_TYPE.RO_INIT_SINGLETHREADED)` function.
 
-TODO
+:::
+
+## Basic example
+
+Here is a basic example that demonstrates how to retrieve the current year from
+the `Calendar` class:
+
+```dart
+import 'package:windows_globalization/windows_globalization.dart';
+
+void main() {
+	final calendar = Calendar(); // Create a Calendar object
+	print(calendar.year); // prints "2023"
+}
+```
 
 ### Releasing WinRT objects
 
@@ -26,19 +59,23 @@ because when the object becomes inaccessible to the program, the
 [Finalizer](https://api.dart.dev/stable/dart-core/Finalizer-class.html)
 automatically releases it for you.
 
-Note that, if you are manually managing the lifetime of an object, such as by
-calling the `.detach()` method, then it is important to ensure that you release
-it properly by calling the `.release()` method. Additionally, you should free
-up the memory that was allocated for the object by calling the `free()` helper
-function.
+:::note
+
+If you are manually managing the lifetime of an object, such as by calling the
+`.detach()` method, then it is important to ensure that you release it properly
+by calling the `.release()` method. Additionally, you should free up the memory
+that was allocated for the object by calling the `free()` helper function as
+follows:
 
 ```dart
 calendar.release(); // Release the WinRT object
-free(calendar.ptr); // Free the allocated memory for the object
+free(calendar.ptr); // Release the allocated memory for the object
 ```
 
 This is necessary to prevent memory leaks and ensure that the memory used by
 the object is properly released.
+
+:::
 
 :::tip
 

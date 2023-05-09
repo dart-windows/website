@@ -28,7 +28,7 @@ final bstr = 'I am a happy BSTR'.toNativeUtf16();
 
 :::
 
-The `win32` pacakge instead offers a wrapper for the COM memory allocation
+The `win32` package instead offers a wrapper for the COM memory allocation
 functions so that `BSTR` types can be created without concern. Instead of the
 above code, you can write:
 

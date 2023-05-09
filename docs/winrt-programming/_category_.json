@@ -1,8 +1,8 @@
 {
-  "label": "Windows Runtime Programming",
+  "label": "WinRT Programming",
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Concepts for developing code that calls the modern Windows Runtime."
+    "description": "Concepts for developing code that calls the modern Windows Runtime APIs."
   }
 }

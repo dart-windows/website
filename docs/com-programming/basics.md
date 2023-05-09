@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Using COM from Dart
+# Basic concepts
 
 Since the `win32` package primarily focuses on providing a lightweight wrapper
 for the underlying Windows API primitives, you can use the same API calls as
@@ -105,8 +105,8 @@ if (FAILED(hr) && hr == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
 Most of the time, you don't need to do anything as COM objects are
 automatically released by `Finalizer` when they go out of scope.
 
-However, if you're manually managing the lifetime of the object (i.e. by
-calling the `.detach()`), you should release it by calling `.release()`:
+However, if you're manually managing the lifetime of the object (i.e. by calling
+the `.detach()` method), you should release it by calling `.release()`:
 
 ```dart
 fileOpenDialog.release(); // Release the interface

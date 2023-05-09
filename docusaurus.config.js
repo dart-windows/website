@@ -55,7 +55,6 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true,
       },
-      // Replace with your project's social card
       image: 'img/dart-on-windows-card.png',
       navbar: {
         title: 'Dart | Windows',
@@ -65,12 +64,9 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'win32DocSidebar',
-            position: 'left',
             label: 'Documentation',
+            to: '/docs/intro',
           },
-          // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/dart-windows',
             label: 'GitHub',

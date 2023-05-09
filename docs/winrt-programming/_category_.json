@@ -3,6 +3,6 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Concepts for developing code that calls the modern Windows Runtime APIs."
+    "description": "Concepts for developing code that calls the modern Windows Runtime (WinRT) APIs."
   }
 }

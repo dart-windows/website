@@ -21,15 +21,29 @@ TODO
 
 ### Releasing WinRT objects
 
-Most of the time, you don't need to do anything as WinRT objects are
-automatically released by `Finalizer` when they go out of scope.
+In general, releasing WinRT objects isn't something you need to worry about,
+because when the object becomes inaccessible to the program, the
+[Finalizer](https://api.dart.dev/stable/dart-core/Finalizer-class.html)
+automatically releases it for you.
 
-However, if you're manually managing the lifetime of the object (i.e. by
-calling the `.detach()` method), you should release it by calling `.release()`:
+Note that, if you are manually managing the lifetime of an object, such as by
+calling the `.detach()` method, then it is important to ensure that you release
+it properly by calling the `.release()` method. Additionally, you should free
+up the memory that was allocated for the object by calling the `free()` helper
+function.
 
 ```dart
-calendar.release(); // Release the interface
+calendar.release(); // Release the WinRT object
+free(calendar.ptr); // Free the allocated memory for the object
 ```
 
-Often this will be called as part of a `try` / `finally` block, to guarantee
-that the object is released even if an exception is thrown.
+This is necessary to prevent memory leaks and ensure that the memory used by
+the object is properly released.
+
+:::tip
+
+It is important to include this code as part of a `try` / `finally` block to
+ensure that the object is released properly, even if an exception is thrown
+during the execution of your code.
+
+:::

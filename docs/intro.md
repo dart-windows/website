@@ -5,9 +5,9 @@ sidebar_position: 1
 # Introduction to Dart | Windows
 
 Dart | Windows is a suite of packages for working with Windows from the Dart
-programming language. It aims to make it easy to write Dart code that can access
-Windows hardware and system services, using traditional Win32, COM or Windows RT
-APIs calls.
+programming language. It aims to make it easy to write Dart code that can
+access Windows hardware and system services, using traditional Win32, COM, or
+Windows Runtime API calls.
 
 ## Why write Windows code with Dart?
 
@@ -18,8 +18,8 @@ few examples:
   need to access a hardware accessory such as a gamepad. Or you want to read a
   setting from the Windows registry.
 
-- You're writing a new cross-platform package, and you want to write the Windows
-  implementation.
+- You're writing a new cross-platform package, and you want to write the
+  Windows implementation.
 
 - You're writing a command-line utility with Dart, and you want to access more
   file APIs than the `dart:io` package directly offers.

@@ -33,13 +33,29 @@ it:
 final lpSystemPowerStatus = calloc<SYSTEM_POWER_STATUS>();
 ```
 
-:::tip
+:::info
 
 Dart also provides `malloc`, which corresponds to the equivalent C runtime
 function that allocates uninitialized memory. In practice, `calloc` is a good
 general choice when writing Windows code, since the performance cost of
 initializing memory is negligible in return for the eradication of potential
 side-effects.
+
+:::
+
+:::tip
+
+Some structs include a field (typically the first one) for their size. This is
+typically because they're used with a function that can accept multiple variants
+of the same struct (e.g. `WNDCLASS` and `WNDCLASSEX`), with the size field being
+used to disambiguate the struct being passed.
+
+The Dart cascade notation provides a convenient way to initialize classes like
+this. For example:
+
+```dart
+final wndClass = calloc<WNDCLASSEX>()..ref.cbSize = sizeOf<WNDCLASSEX>();
+```
 
 :::
 

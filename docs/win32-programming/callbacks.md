@@ -100,4 +100,5 @@ The Dart `enumerateFonts()` function will now be called once for every
 discovered font that matches the search characteristics.
 
 A complete version of the example here can be found in the `example` folder of
-`package:win32` as `fonts.dart`.
+`package:win32` as
+[`fonts.dart`](https://github.com/dart-windows/win32/blob/main/example/fonts.dart).

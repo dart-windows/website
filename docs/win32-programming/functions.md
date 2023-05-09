@@ -7,7 +7,8 @@ sidebar_position: 2
 Win32 functions are exposed through `package:win32` as global Dart functions, so
 you can call them just like any other Dart function. For consistency with the
 C-based functions that they wrap, they are named with title case rather than the
-Dart camel case convention. Here's a simple example of calling the `Beep`
+Dart camel case convention. Here's a simple example of calling the
+[`Beep`](https://learn.microsoft.com/en-us/windows/win32/api/utilapiset/nf-utilapiset-beep)
 API to play an A<sub>4</sub> note for 1/2 second:
 
 ```dart

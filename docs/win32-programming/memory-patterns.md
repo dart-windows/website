@@ -98,9 +98,11 @@ individually freed. Secondly, the variable `pCreationSystemTime` has to be
 allocated even if the first call fails. This can be a nuisance in larger
 methods.
 
-An alternative approach is to use the `using` pattern with an `Arena` object,
-which is a memory allocator that tracks memory allocations and automatically
-releases them when the `using` scope ends.
+An alternative approach is to use the
+[`using`](https://pub.dev/documentation/ffi/latest/ffi/using.html) pattern with
+an [`Arena`](https://pub.dev/documentation/ffi/latest/ffi/Arena-class.html)
+object, which is a memory allocator that tracks memory allocations and
+automatically releases them when the `using` scope ends.
 
 Here's the same function written this way:
 

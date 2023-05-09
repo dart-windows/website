@@ -13,8 +13,10 @@ languages, including Dart, have good support for calling C code and handling C
 coding conventions.
 
 In Dart, the primary means of calling C code is FFI, which stands for Foreign
-Function Interface. Dart supplies both a library, `dart:ffi`, and a package,
-`package:ffi', which together supply useful low-level functions and helpers.
+Function Interface. Dart supplies both a library,
+[`dart:ffi`](https://api.dart.dev/stable/3.0.0/dart-ffi/dart-ffi-library.html),
+and a package, [`package:ffi`](https://pub.dev/packages/ffi), which together
+supply useful low-level functions and helpers.
 
 To call FFI features, you will typically import both the library and the package
 from your code, along with the Win32 package itself, as follows:

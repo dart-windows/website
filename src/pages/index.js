@@ -29,7 +29,7 @@ function HomepageHeader() {
 export default function Home() {
   return (
     <Layout
-      description="Description will go into a meta tag in <head />">
+      description="A suite of packages to support Windows development with the Dart programming language.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

@@ -24,6 +24,15 @@ class from the `Windows.Globalization` namespace, you would import the `windows_
 import 'package:windows_globalization/windows_globalization.dart';
 ```
 
+:::caution
+
+The `dartwinrt` is under active development and is considered **unstable**,
+which means breaking changes are expected. Furthermore, it is important to keep
+in mind that there are some known [`limitations`](limitations) associated with
+it.
+
+:::
+
 ## Initializing the WinRT
 
 The `dartwinrt` automatically initializes the WinRT with a multi-threaded

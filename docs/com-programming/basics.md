@@ -100,26 +100,30 @@ if (FAILED(hr) && hr == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
 }
 ```
 
-### Releasing COM objects
+## Releasing COM objects
 
 In general, releasing COM objects isn't something you need to worry about,
 because when the object becomes inaccessible to the program, the
 [Finalizer](https://api.dart.dev/stable/dart-core/Finalizer-class.html)
 automatically releases it for you.
 
-Note that, if you are manually managing the lifetime of an object, such as by
-calling the `.detach()` method, then it is important to ensure that you release
-it properly by calling the `.release()` method. Additionally, you should free
-up the memory that was allocated for the object by calling the `free()` helper
-function.
+:::note
+
+If you are manually managing the lifetime of an object, such as by calling the
+`.detach()` method, then it is important to ensure that you release it properly
+by calling the `.release()` method. Additionally, you should free up the memory
+that was allocated for the object by calling the `free()` helper function as
+follows:
 
 ```dart
 fileOpenDialog.release(); // Release the COM object
-free(fileOpenDialog.ptr); // Free the allocated memory for the object
+free(fileOpenDialog.ptr); // Release the allocated memory for the object
 ```
 
 This is necessary to prevent memory leaks and ensure that the memory used by
 the object is properly released.
+
+:::
 
 :::tip
 

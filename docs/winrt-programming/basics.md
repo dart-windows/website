@@ -52,7 +52,7 @@ void main() {
 }
 ```
 
-### Releasing WinRT objects
+## Releasing WinRT objects
 
 In general, releasing WinRT objects isn't something you need to worry about,
 because when the object becomes inaccessible to the program, the

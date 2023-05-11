@@ -105,7 +105,7 @@ In general, releasing COM objects isn't something you need to worry about,
 because when the object becomes inaccessible to the program, the [Finalizer]
 automatically releases it for you.
 
-:::note
+::::caution
 
 If you are manually managing the lifetime of an object, such as by calling the
 `.detach()` method, then it is important to ensure that you release it properly
@@ -121,8 +121,6 @@ free(fileOpenDialog.ptr); // Release the allocated memory for the object
 This is necessary to prevent memory leaks and ensure that the memory used by
 the object is properly released.
 
-:::
-
 :::tip
 
 It is important to include this code as part of a `try` / `finally` block to
@@ -130,6 +128,8 @@ ensure that the object is released properly, even if an exception is thrown
 during the execution of your code.
 
 :::
+
+::::
 
 [C library]: https://docs.microsoft.com/en-us/windows/win32/learnwin32/creating-an-object-in-com
 [Finalizer]: https://api.dart.dev/stable/dart-core/Finalizer-class.html

@@ -15,7 +15,7 @@ models.
 
 [dartwinrt] provides an idiomatic Dart projection of modern WinRT APIs using
 FFI. This allows you to use WinRT APIs in your Dart applications, including
-Flutter apps with minimal effort. It consists of `18` packages, each of which
+Flutter apps with minimal effort. It consists of `18` [packages], each of which
 corresponds to a top-level namespace (e.g. [windows_globalization] package
 contains the WinRT APIs from the [Windows.Globalization] namespace).
 
@@ -57,6 +57,8 @@ example that demonstrates how to retrieve the current `DateTime` from the
 [Calendar] class:
 
 ```dart
+// Since Calendar class is defined in the Windows.Globalization namespace,
+// you need to import the windows_globalization package.
 import 'package:windows_globalization/windows_globalization.dart';
 
 void main() {
@@ -72,7 +74,7 @@ In general, releasing WinRT objects isn't something you need to worry about,
 because when the object becomes inaccessible to the program, the [Finalizer]
 automatically releases it for you.
 
-:::note
+::::caution
 
 If you are manually managing the lifetime of an object, such as by calling the
 `.detach()` method, then it is important to ensure that you release it properly
@@ -88,8 +90,6 @@ free(calendar.ptr); // Release the allocated memory for the object
 This is necessary to prevent memory leaks and ensure that the memory used by
 the object is properly released.
 
-:::
-
 :::tip
 
 It is important to include this code as part of a `try` / `finally` block to
@@ -97,6 +97,8 @@ ensure that the object is released properly, even if an exception is thrown
 during the execution of your code.
 
 :::
+
+::::
 
 [Calendar]: https://learn.microsoft.com/en-us/uwp/api/windows.globalization.calendar
 [dartwinrt]: https://github.com/dart-windows/dartwinrt

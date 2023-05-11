@@ -26,8 +26,7 @@ if (FAILED(hr)) throw WindowsException(hr);
 
 ## Creating a COM object
 
-You can create COM objects using the [C
-library](https://docs.microsoft.com/en-us/windows/win32/learnwin32/creating-an-object-in-com):
+You can create COM objects using the [C library]:
 
 ```dart
 hr = CoCreateInstance(clsid, nullptr, CLSCTX_INPROC_SERVER, iid, ppv);
@@ -54,8 +53,8 @@ derives from `IUnknown`, so as in other language implementations of COM, you
 may call `queryInterface` on any object to retrieve a pointer to a different
 supported interface.
 
-More information on COM interfaces may be found in the [Microsoft
-documentation](https://docs.microsoft.com/en-us/windows/win32/learnwin32/asking-an-object-for-an-interface).
+More information on COM interfaces may be found in the
+[Microsoft documentation].
 
 COM interfaces supply a method that wraps `queryInterface`. If you
 have an existing COM object, you can call it as follows:
@@ -103,8 +102,7 @@ if (FAILED(hr) && hr == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
 ## Releasing COM objects
 
 In general, releasing COM objects isn't something you need to worry about,
-because when the object becomes inaccessible to the program, the
-[Finalizer](https://api.dart.dev/stable/dart-core/Finalizer-class.html)
+because when the object becomes inaccessible to the program, the [Finalizer]
 automatically releases it for you.
 
 :::note
@@ -132,3 +130,7 @@ ensure that the object is released properly, even if an exception is thrown
 during the execution of your code.
 
 :::
+
+[C library]: https://docs.microsoft.com/en-us/windows/win32/learnwin32/creating-an-object-in-com
+[Finalizer]: https://api.dart.dev/stable/dart-core/Finalizer-class.html
+[Microsoft documentation]: https://docs.microsoft.com/en-us/windows/win32/learnwin32/asking-an-object-for-an-interface

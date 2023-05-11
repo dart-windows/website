@@ -6,19 +6,23 @@ sidebar_position: 1
 
 ## Overview
 
-The [dartwinrt](https://github.com/dart-windows/dartwinrt) provides an
-idiomatic Dart projection of modern Windows Runtime (WinRT) APIs using Dart
+The Windows Runtime (WinRT) is a suite of APIs and architectural model,
+introduced in Windows 8, that powers the latest generation of Windows APIs.
+It is an evolution of the COM API that is designed for access from a variety of
+languages. WinRT introduces standardized interfaces for collections (e.g.
+[IVector]), as well as support for generic types and asynchronous programming
+models.
+
+[dartwinrt] provides an idiomatic Dart projection of modern WinRT APIs using
 FFI. This allows you to use WinRT APIs in your Dart applications, including
-Flutter apps with minimal effort.
+Flutter apps with minimal effort. It consists of `18` packages, each of which
+corresponds to a top-level namespace (e.g. [windows_globalization] package
+contains the WinRT APIs from the [Windows.Globalization] namespace).
 
-There are a total of `18` packages, each corresponding to a top-level WinRT
-namespace. For example, the [windows_globalization](https://pub.dev/packages/windows_globalization) package contains the WinRT APIs from the
-[Windows.Globalization](https://learn.microsoft.com/en-us/uwp/api/windows.globalization) namespace.
-
-To call WinRT APIs, you will typically import the packages that provide the
-specific WinRT APIs required by your application. For example, to use the
-[Calendar](https://learn.microsoft.com/en-us/uwp/api/windows.globalization.calendar)
-class from the `Windows.Globalization` namespace, you would import the `windows_globalization` package as follows:
+Typically, you would import only the packages that provide the specific WinRT
+APIs that your application requires. For example, to use the [Calendar] class
+from the `Windows.Globalization` namespace, you would import the
+`windows_globalization` package as follows:
 
 ```dart
 import 'package:windows_globalization/windows_globalization.dart';
@@ -26,46 +30,46 @@ import 'package:windows_globalization/windows_globalization.dart';
 
 :::caution
 
-The `dartwinrt` is under active development and is considered **unstable**,
-which means breaking changes are expected. Furthermore, it is important to keep
-in mind that there are some known [`limitations`](limitations) associated with
-it.
+`dartwinrt` is under active development and is considered **unstable**, which
+means breaking changes are expected. Additionally, it is worth noting that
+there are some known [limitations](limitations) associated with it.
 
 :::
 
 ## Initializing the WinRT
 
-The `dartwinrt` automatically initializes the WinRT with a multi-threaded
-apartment (MTA) as needed, so you typically don't need to take any additional
-steps to use WinRT APIs.
+`dartwinrt` automatically initializes WinRT using a multi-threaded apartment
+(MTA) when necessary. Therefore, in most cases, you do not need to undertake
+any extra measures to begin calling WinRT APIs.
 
 :::note
 
 Keep in mind that, if you need to call WinRT APIs that only work in a
-single-threaded apartment (STA), you must initialize the WinRT with a STA by
+single-threaded apartment (STA), you must initialize WinRT with a STA by
 calling the `RoInitialize(RO_INIT_TYPE.RO_INIT_SINGLETHREADED)` function.
 
 :::
 
-## Basic example
+## Calling WinRT APIs
 
-Here is a basic example that demonstrates how to retrieve the current year from
-the `Calendar` class:
+Calling WinRT APIs is pretty straightforward. To illustrate, here is a simple
+example that demonstrates how to retrieve the current `DateTime` from the
+[Calendar] class:
 
 ```dart
 import 'package:windows_globalization/windows_globalization.dart';
 
 void main() {
-	final calendar = Calendar(); // Create a Calendar object
-	print(calendar.year); // prints "2023"
+	final calendar = Calendar(); // Create a new Calendar object
+	final currentDateTime = calendar.getDateTime(); // Get the current DateTime
+	print(currentDateTime); // e.g. 2023-05-11 13:47:21.380001Z
 }
 ```
 
 ## Releasing WinRT objects
 
 In general, releasing WinRT objects isn't something you need to worry about,
-because when the object becomes inaccessible to the program, the
-[Finalizer](https://api.dart.dev/stable/dart-core/Finalizer-class.html)
+because when the object becomes inaccessible to the program, the [Finalizer]
 automatically releases it for you.
 
 :::note
@@ -93,3 +97,11 @@ ensure that the object is released properly, even if an exception is thrown
 during the execution of your code.
 
 :::
+
+[Calendar]: https://learn.microsoft.com/en-us/uwp/api/windows.globalization.calendar
+[dartwinrt]: https://github.com/dart-windows/dartwinrt
+[Finalizer]: https://api.dart.dev/stable/dart-core/Finalizer-class.html
+[IVector]: https://learn.microsoft.com/en-us/uwp/api/windows.foundation.collections.ivector-1
+[packages]: https://github.com/dart-windows/dartwinrt#packages-
+[windows_globalization]: https://pub.dev/packages/windows_globalization
+[Windows.Globalization]: https://learn.microsoft.com/en-us/uwp/api/windows.globalization

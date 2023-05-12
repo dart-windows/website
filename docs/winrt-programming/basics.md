@@ -57,8 +57,6 @@ example that demonstrates how to retrieve the current `DateTime` from the
 [Calendar] class:
 
 ```dart
-// Since Calendar class is defined in the Windows.Globalization namespace,
-// you need to import the windows_globalization package.
 import 'package:windows_globalization/windows_globalization.dart';
 
 void main() {

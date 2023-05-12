@@ -51,7 +51,7 @@ WinRT APIs that aren't supported, or have restrictions:
 -	APIs that require [package identity]. Such APIs are supported only in apps
 	that are packaged using [MSIX].
 
-:::note
+:::info
 
 Please refer to the [Windows Runtime APIs not supported in desktop apps] page
 for more information.

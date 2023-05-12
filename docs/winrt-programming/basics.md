@@ -53,7 +53,7 @@ there are some known [limitations](limitations) associated with it.
 (MTA) when necessary. Therefore, in most cases, you do not need to undertake
 any extra measures to begin calling WinRT APIs.
 
-:::note
+:::caution
 
 Keep in mind that, if you need to call WinRT APIs that only work in a
 single-threaded apartment (STA), you must initialize WinRT with a STA by

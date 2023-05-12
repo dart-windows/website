@@ -28,6 +28,17 @@ from the `Windows.Globalization` namespace, you would import the
 import 'package:windows_globalization/windows_globalization.dart';
 ```
 
+:::info
+
+The WinRT APIs that are projected by `dartwinrt` are limited, but additional
+APIs will be added based on user demand, especially if it helps facilitate the
+development of new Dart packages for Windows.
+
+If you encounter any issues or have any feature requests, please submit them
+through the [issue tracker].
+
+:::
+
 :::caution
 
 `dartwinrt` is under active development and is considered **unstable**, which
@@ -101,6 +112,7 @@ during the execution of your code.
 [Calendar]: https://learn.microsoft.com/en-us/uwp/api/windows.globalization.calendar
 [dartwinrt]: https://github.com/dart-windows/dartwinrt
 [Finalizer]: https://api.dart.dev/stable/dart-core/Finalizer-class.html
+[issue tracker]: https://github.com/dart-windows/dartwinrt/issues
 [IVector]: https://learn.microsoft.com/en-us/uwp/api/windows.foundation.collections.ivector-1
 [packages]: https://github.com/dart-windows/dartwinrt#packages-
 [windows_globalization]: https://pub.dev/packages/windows_globalization

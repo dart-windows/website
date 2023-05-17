@@ -42,6 +42,9 @@ const config = {
           editUrl:
             'https://github.com/dart-windows/website/tree/main/',
         },
+        googleTagManager: {
+          containerId: 'G-193HRKRE3S',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },

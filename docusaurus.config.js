@@ -55,7 +55,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       image: 'img/dart-on-windows-card.png',
       navbar: {
         title: 'Dart | Windows',
@@ -65,12 +67,9 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'win32DocSidebar',
-            position: 'left',
             label: 'Documentation',
+            to: '/docs/intro',
           },
-          // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/dart-windows',
             label: 'GitHub',

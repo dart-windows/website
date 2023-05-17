@@ -26,8 +26,7 @@ if (FAILED(hr)) throw WindowsException(hr);
 
 ## Creating a COM object
 
-You can create COM objects using the [C
-library](https://docs.microsoft.com/en-us/windows/win32/learnwin32/creating-an-object-in-com):
+You can create COM objects using the [C library]:
 
 ```dart
 hr = CoCreateInstance(clsid, nullptr, CLSCTX_INPROC_SERVER, iid, ppv);
@@ -54,8 +53,8 @@ derives from `IUnknown`, so as in other language implementations of COM, you
 may call `queryInterface` on any object to retrieve a pointer to a different
 supported interface.
 
-More information on COM interfaces may be found in the [Microsoft
-documentation](https://docs.microsoft.com/en-us/windows/win32/learnwin32/asking-an-object-for-an-interface).
+More information on COM interfaces may be found in the
+[Microsoft documentation].
 
 COM interfaces supply a method that wraps `queryInterface`. If you
 have an existing COM object, you can call it as follows:
@@ -100,17 +99,38 @@ if (FAILED(hr) && hr == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
 }
 ```
 
-### Releasing COM objects
+## Releasing COM objects
 
-Most of the time, you don't need to do anything as COM objects are
-automatically released by `Finalizer` when they go out of scope.
+In general, releasing COM objects isn't something you need to worry about,
+because when the object becomes inaccessible to the program, the [Finalizer]
+automatically releases it for you.
 
-However, if you're manually managing the lifetime of the object (i.e. by calling
-the `.detach()` method), you should release it by calling `.release()`:
+::::caution
+
+If you are manually managing the lifetime of an object, such as by calling the
+`.detach()` method, then it is important to ensure that you release it properly
+by calling the `.release()` method. Additionally, you should free up the memory
+that was allocated for the object by calling the `free()` helper function as
+follows:
 
 ```dart
-fileOpenDialog.release(); // Release the interface
+fileOpenDialog.release(); // Release the COM object
+free(fileOpenDialog.ptr); // Release the allocated memory for the object
 ```
 
-Often this will be called as part of a `try` / `finally` block, to guarantee
-that the object is released even if an exception is thrown.
+This is necessary to prevent memory leaks and ensure that the memory used by
+the object is properly released.
+
+:::tip
+
+It is important to include this code as part of a `try` / `finally` block to
+ensure that the object is released properly, even if an exception is thrown
+during the execution of your code.
+
+:::
+
+::::
+
+[C library]: https://docs.microsoft.com/en-us/windows/win32/learnwin32/creating-an-object-in-com
+[Finalizer]: https://api.dart.dev/stable/dart-core/Finalizer-class.html
+[Microsoft documentation]: https://docs.microsoft.com/en-us/windows/win32/learnwin32/asking-an-object-for-an-interface

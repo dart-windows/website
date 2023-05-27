@@ -131,6 +131,6 @@ during the execution of your code.
 
 ::::
 
-[C library]: https://docs.microsoft.com/en-us/windows/win32/learnwin32/creating-an-object-in-com
+[C library]: https://learn.microsoft.com/windows/win32/learnwin32/creating-an-object-in-com
 [Finalizer]: https://api.dart.dev/stable/dart-core/Finalizer-class.html
-[Microsoft documentation]: https://docs.microsoft.com/en-us/windows/win32/learnwin32/asking-an-object-for-an-interface
+[Microsoft documentation]: https://learn.microsoft.com/windows/win32/learnwin32/asking-an-object-for-an-interface

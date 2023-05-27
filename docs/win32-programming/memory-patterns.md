@@ -5,7 +5,7 @@ sidebar_position: 6
 # Patterns for memory management
 
 Consider the following (bad) example of a function that calls
-[`CoCreateGuid`](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-cocreateguid)
+[`CoCreateGuid`](https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-cocreateguid)
 to return a String. Can you see a potential bug in this code?
 
 ```dart

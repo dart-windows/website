@@ -21,7 +21,7 @@ thread are incompatible with this model. See [issue
 :::
 
 As an example of creating a callback, let's look at the
-[`EnumFontFamiliesEx`](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-enumfontfamiliesexw)
+[`EnumFontFamiliesEx`](https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-enumfontfamiliesexw)
 function, which enumerates all uniquely-named fonts in the system that match a
 specified set of font characteristics. `EnumFontFamiliesEx` takes a `LOGFONT`
 struct which contains the

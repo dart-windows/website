@@ -9,7 +9,7 @@ This topic provides more information on how to create, pass and access struct
 objects from Dart code.
 
 For example, let's assume you want to call the Win32 API
-[`GetSystemPowerStatus`](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getsystempowerstatus),
+[`GetSystemPowerStatus`](https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getsystempowerstatus),
 which retrieves the current power status of the system (e.g. battery or AC
 powered).
 

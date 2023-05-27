@@ -109,11 +109,11 @@ during the execution of your code.
 
 ::::
 
-[Calendar]: https://learn.microsoft.com/en-us/uwp/api/windows.globalization.calendar
+[Calendar]: https://learn.microsoft.com/uwp/api/windows.globalization.calendar
 [dartwinrt]: https://github.com/dart-windows/dartwinrt
 [Finalizer]: https://api.dart.dev/stable/dart-core/Finalizer-class.html
 [issue tracker]: https://github.com/dart-windows/dartwinrt/issues
-[IVector]: https://learn.microsoft.com/en-us/uwp/api/windows.foundation.collections.ivector-1
+[IVector]: https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1
 [packages]: https://github.com/dart-windows/dartwinrt#packages-
 [windows_globalization]: https://pub.dev/packages/windows_globalization
-[Windows.Globalization]: https://learn.microsoft.com/en-us/uwp/api/windows.globalization
+[Windows.Globalization]: https://learn.microsoft.com/uwp/api/windows.globalization

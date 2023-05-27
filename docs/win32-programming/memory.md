@@ -96,7 +96,7 @@ responsible for freeing its memory.
 If you want to create a new string, Win32 provides a simple function `wsalloc`,
 which allocates the necessary storage. This is particularly useful when you wish
 to _receive_ a string from Windows. The following example calls the Win32
-[`SHGetFolderPath`](https://learn.microsoft.com/en-us/windows/win32/api/shlobj_core/nf-shlobj_core-shgetfolderpathw)
+[`SHGetFolderPath`](https://learn.microsoft.com/windows/win32/api/shlobj_core/nf-shlobj_core-shgetfolderpathw)
 API to retrieve the directory of the Desktop folder:
 
 ```dart

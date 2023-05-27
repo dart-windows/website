@@ -58,10 +58,10 @@ for more information.
 
 :::
 
-[IAsyncActionWithProgress]: https://learn.microsoft.com/en-us/uwp/api/windows.foundation.iasyncactionwithprogress-1
-[IAsyncOperationWithProgress]: https://learn.microsoft.com/en-us/uwp/api/windows.foundation.iasyncoperationwithprogress-2
-[MSIX]: https://learn.microsoft.com/en-us/windows/msix/
-[NetworkInformation]: https://learn.microsoft.com/en-us/uwp/api/windows.networking.connectivity.networkinformation
-[NetworkStatusChanged]: https://learn.microsoft.com/en-us/uwp/api/windows.networking.connectivity.networkinformation.networkstatuschanged
-[package identity]: https://learn.microsoft.com/en-us/windows/apps/desktop/modernize/package-identity-overview
-[Windows Runtime APIs not supported in desktop apps]: https://learn.microsoft.com/en-us/windows/apps/desktop/modernize/desktop-to-uwp-supported-api
+[IAsyncActionWithProgress]: https://learn.microsoft.com/uwp/api/windows.foundation.iasyncactionwithprogress-1
+[IAsyncOperationWithProgress]: https://learn.microsoft.com/uwp/api/windows.foundation.iasyncoperationwithprogress-2
+[MSIX]: https://learn.microsoft.com/windows/msix/
+[NetworkInformation]: https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkinformation
+[NetworkStatusChanged]: https://learn.microsoft.com/uwp/api/windows.networking.connectivity.networkinformation.networkstatuschanged
+[package identity]: https://learn.microsoft.com/windows/apps/desktop/modernize/package-identity-overview
+[Windows Runtime APIs not supported in desktop apps]: https://learn.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-supported-api

@@ -23,9 +23,8 @@ invoked from native functions:
   Constructs a `NativeCallable` that can be invoked from any thread. However, it
   has a limitation; only `void` functions are supported.
 
-  Choosing between these two options depends on your specific requirements,
-  particularly the threading context in which the Win32 API you'll call
-  operates.
+Choosing between these two options depends on your specific requirements,
+particularly the threading context in which the Win32 API you'll call operates.
 
 :::
 

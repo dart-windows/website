@@ -14,7 +14,7 @@ which retrieves the current power status of the system (e.g. battery or AC
 powered).
 
 The [Dart function
-signature](https://pub.dev/documentation/win32/latest/winrt/GetSystemPowerStatus.html)
+signature](https://pub.dev/documentation/win32/latest/win32/GetSystemPowerStatus.html)
 looks like this:
 
 ```dart
@@ -22,9 +22,9 @@ int GetSystemPowerStatus(Pointer<SYSTEM_POWER_STATUS> lpSystemPowerStatus) {}
 ```
 
 As the documentation indicates,
-[`SYSTEM_POWER_STATUS`](https://pub.dev/documentation/win32/latest/winrt/SYSTEM_POWER_STATUS-class.html)
+[`SYSTEM_POWER_STATUS`](https://pub.dev/documentation/win32/latest/win32/SYSTEM_POWER_STATUS-class.html)
 inherits from the dart:ffi
-[`Struct`](https://api.dart.dev/stable/2.19.6/dart-ffi/Struct-class.html) class.
+[`Struct`](https://api.dart.dev/stable/dart-ffi/Struct-class.html) class.
 
 To create such a struct, you can use `calloc` to allocate memory for
 it:
@@ -61,7 +61,7 @@ final wndClass = calloc<WNDCLASSEX>()..ref.cbSize = sizeOf<WNDCLASSEX>();
 
 Since `lpSystemPowerStatus` is of type `Pointer<SYSTEM_POWER_STATUS>`, how do we
 access the fields of `SYSTEM_POWER_STATUS`? Struct pointers have a
-[`ref`](https://api.dart.dev/stable/3.0.0/dart-ffi/StructPointer/ref.html)
+[`ref`](https://api.dart.dev/stable/dart-ffi/StructPointer/ref.html)
 property which creates a reference accessing the fields of the struct.
 
 Here's a simple example that shows how to detect the power status of a machine:

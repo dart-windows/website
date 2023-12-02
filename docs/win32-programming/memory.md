@@ -48,7 +48,7 @@ crash of your application or even data corruption.
 
 When you have completed the operation for which the allocated memory was needed,
 you should release it so that it can be reused. `dart:ffi` provides a
-[`calloc.free()`](https://api.dart.dev/stable/3.0.0/dart-ffi/Allocator/free.html)
+[`calloc.free()`](https://api.dart.dev/stable/dart-ffi/Allocator/free.html)
 method, but for convenience, `package:win32` provides a simple `free()` global
 function, which you can use as follows:
 

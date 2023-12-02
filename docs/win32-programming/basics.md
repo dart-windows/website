@@ -14,7 +14,7 @@ coding conventions.
 
 In Dart, the primary means of calling C code is FFI, which stands for Foreign
 Function Interface. Dart supplies both a library,
-[`dart:ffi`](https://api.dart.dev/stable/3.0.0/dart-ffi/dart-ffi-library.html),
+[`dart:ffi`](https://api.dart.dev/stable/dart-ffi/dart-ffi-library.html),
 and a package, [`package:ffi`](https://pub.dev/packages/ffi), which together
 supply useful low-level functions and helpers.
 

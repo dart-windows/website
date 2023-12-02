@@ -13,10 +13,19 @@ function with the first API call that Win32 executes to pass data back.
 
 :::caution
 
-At present, Dart can only receive function callbacks from the same thread that
-was used to create the callback. Win32 APIs that callback from a different
-thread are incompatible with this model. See [issue
-#544](https://github.com/dart-windows/win32/issues/544) for more information.
+Currently, Dart provides two ways for creating callback functions that can be
+invoked from native functions:
+
+- [`NativeCallable.isolateLocal`](https://api.dart.dev/stable/3.2.2/dart-ffi/NativeCallable/NativeCallable.isolateLocal.html):
+  Constructs a `NativeCallable` that must be invoked from the same thread that
+  created it.
+- [`NativeCallable.listener`](https://api.dart.dev/stable/3.2.2/dart-ffi/NativeCallable/NativeCallable.listener.html):
+  Constructs a `NativeCallable` that can be invoked from any thread. However, it
+  has a limitation; only `void` functions are supported.
+
+  Choosing between these two options depends on your specific requirements,
+  particularly the threading context in which the Win32 API you'll call
+  operates.
 
 :::
 
@@ -70,34 +79,35 @@ A couple of details that are worthy of note:
   returning `FALSE` instead (for example, if we'd found a specific font that we
   were looking for).
 
-:::note
-
-Closures and tear-offs are not supported for function callbacks. They must be a
-static function (e.g. declared as a top-level function).
-
-:::
-
 Now we have our function callback, we can use it to call `EnumFontFamiliesEx`:
 
 ```dart
 void main() {
   final hDC = GetDC(NULL);
   final searchFont = calloc<LOGFONT>()..ref.lfCharSet = HANGUL_CHARSET;
-  final callback = Pointer.fromFunction<EnumFontFamExProc>(enumerateFonts, 0);
+  final callback = NativeCallable<EnumFontFamExProc>.isolateLocal(
+    enumerateFonts,
+    exceptionalReturn: 0,
+  );
 
-  EnumFontFamiliesEx(hDC, searchFont, callback, 0, 0);
-  
+  EnumFontFamiliesEx(hDC, searchFont, callback.nativeFunction, 0, 0);
+
+  // Close the callback when it's no longer needed
+  callback.close();
+
   free(searchFont);
 }
 ```
 
 In the above function, we create a struct `LOGFONT` containing our required
 search characteristics (fonts that support the Hangul, or Korean, character
-set). We then create a pointer to the Dart callback function using the
-[`.fromFunction()`](https://api.dart.dev/stable/3.0.0/dart-ffi/Pointer/fromFunction.html)
-method. Lastly, we call the `EnumFontFamiliesEx` API to set up the enumeration.
-The Dart `enumerateFonts()` function will now be called once for every
-discovered font that matches the search characteristics.
+set). We then create a
+[NativeCallable](https://api.dart.dev/stable/3.2.2/dart-ffi/NativeCallable-class.html)
+for the Dart callback function using the
+[`NativeCallable.isolateLocal`](https://api.dart.dev/stable/3.2.2/dart-ffi/NativeCallable/NativeCallable.isolateLocal.html)
+constructor. Lastly, we call the `EnumFontFamiliesEx` API to set up the
+enumeration. The Dart `enumerateFonts()` function will now be called once for
+every discovered font that matches the search characteristics.
 
 A complete version of the example here can be found in the `example` folder of
 `package:win32` as

@@ -13,18 +13,22 @@ function with the first API call that Win32 executes to pass data back.
 
 :::caution
 
-Currently, Dart provides two ways for creating callback functions that can be
+Dart currently offers two ways for creating callback functions that can be
 invoked from native functions:
 
 - [`NativeCallable.isolateLocal`](https://api.dart.dev/stable/dart-ffi/NativeCallable/NativeCallable.isolateLocal.html):
   Constructs a `NativeCallable` that must be invoked from the same thread that
   created it.
 - [`NativeCallable.listener`](https://api.dart.dev/stable/dart-ffi/NativeCallable/NativeCallable.listener.html):
-  Constructs a `NativeCallable` that can be invoked from any thread. However, it
-  has a limitation; only `void` functions are supported.
+  Constructs a `NativeCallable` that can be invoked from any thread. However,
+  this comes with a restriction — only `void` functions are supported.
 
-Choosing between these two options depends on your specific requirements,
-particularly the threading context in which the Win32 API you'll call operates.
+In most cases, utilizing `NativeCallable.isolateLocal` should suffice. However,
+if you encounter a `Cannot invoke native callback outside an isolate.` error, it
+indicates that the API you're calling operates in a different thread context.
+In such cases, consider using `NativeCallable.listener`, especially if the
+callback is a `void` function. If not, there is currently no way to call that
+particular API.
 
 :::
 

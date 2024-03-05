@@ -44,17 +44,17 @@ The Dart function signature for `EnumFontFamiliesEx` is as follows:
 int EnumFontFamiliesEx(
         int hdc,
         Pointer<LOGFONT> lpLogfont,
-        Pointer<NativeFunction<EnumFontFamExProc>> lpProc,
+        Pointer<NativeFunction<FONTENUMPROC>> lpProc,
         int lParam,
         int dwFlags) { ... }
 ```
 
 Notice the third parameter, which is a pointer to the callback function.
-`EnumFontFamExProc`. This is called once for every enumerated font, and is
-defined as:
+`FONTENUMPROC`. This is called once for every enumerated font, and is defined
+as:
 
 ```dart
-typedef EnumFontFamExProc = Int32 Function(Pointer<LOGFONT> lpelfe,
+typedef FONTENUMPROC = Int32 Function(Pointer<LOGFONT> lpelfe,
     Pointer<TEXTMETRIC> lpntme, DWORD FontType, LPARAM lParam);
 ```
 
@@ -88,7 +88,7 @@ Now we have our function callback, we can use it to call `EnumFontFamiliesEx`:
 void main() {
   final hDC = GetDC(NULL);
   final searchFont = calloc<LOGFONT>()..ref.lfCharSet = HANGUL_CHARSET;
-  final callback = NativeCallable<EnumFontFamExProc>.isolateLocal(
+  final callback = NativeCallable<FONTENUMPROC>.isolateLocal(
     enumerateFonts,
     exceptionalReturn: 0,
   );

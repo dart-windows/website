@@ -5,8 +5,8 @@ sidebar_position: 2
 # Using strings in COM
 
 Most COM interfaces use regular C strings, which are allocated and used using
-the techniques described in [Allocating
-strings](docs/win32-programming/memory#allocating-strings).
+the techniques described in
+[Allocating strings](../win32-programming/memory#allocating-strings).
 
 However, some COM APIs use the `BSTR` type, in particular those that support
 late binding (often known as `IDispatch`) interfaces.

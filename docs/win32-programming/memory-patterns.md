@@ -76,14 +76,9 @@ DateTime processCreationTime() {
     // Convert to UTC
     hr = FileTimeToSystemTime(pCreationTime, pCreationSystemTime);
     if (FAILED(hr)) throw WindowsException(hr);
-    return DateTime.utc(
-            pCreationSystemTime.ref.wYear,
-            pCreationSystemTime.ref.wMonth,
-            pCreationSystemTime.ref.wDay,
-            pCreationSystemTime.ref.wHour,
-            pCreationSystemTime.ref.wMinute,
-            pCreationSystemTime.ref.wSecond)
-        .toLocal();
+    final SYSTEMTIME(:wYear, :wMonth, :wDay, :wHour, :wMinute, :wSecond) =
+        pCreationSystemTime.ref;
+    return DateTime.utc(wYear, wMonth, wDay, wHour, wMinute, wSecond).toLocal();
   } finally {
     free(pCreationTime);
     free(pExitTime);
@@ -125,14 +120,9 @@ DateTime processCreationTime() {
     final pCreationSystemTime = alloc<SYSTEMTIME>();
     hr = FileTimeToSystemTime(pCreationTime, pCreationSystemTime);
     if (FAILED(hr)) throw WindowsException(hr);
-    return DateTime.utc(
-            pCreationSystemTime.ref.wYear,
-            pCreationSystemTime.ref.wMonth,
-            pCreationSystemTime.ref.wDay,
-            pCreationSystemTime.ref.wHour,
-            pCreationSystemTime.ref.wMinute,
-            pCreationSystemTime.ref.wSecond)
-        .toLocal();
+    final SYSTEMTIME(:wYear, :wMonth, :wDay, :wHour, :wMinute, :wSecond) =
+        pCreationSystemTime.ref;
+    return DateTime.utc(wYear, wMonth, wDay, wHour, wMinute, wSecond).toLocal();
   });
 }
 ```

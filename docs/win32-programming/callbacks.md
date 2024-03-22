@@ -87,7 +87,8 @@ Now we have our function callback, we can use it to call `EnumFontFamiliesEx`:
 ```dart
 void main() {
   final hDC = GetDC(NULL);
-  final searchFont = calloc<LOGFONT>()..ref.lfCharSet = HANGUL_CHARSET;
+  final searchFont = calloc<LOGFONT>()
+    ..ref.lfCharSet = FONT_CHARSET.HANGUL_CHARSET;
   final callback = NativeCallable<FONTENUMPROC>.isolateLocal(
     enumerateFonts,
     exceptionalReturn: 0,

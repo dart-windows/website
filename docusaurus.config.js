@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Dart | Windows',
-  tagline: 'A suite of packages to support Windows development with the Dart programming language.',
+  tagline: 'A suite of packages to support Windows development with Dart.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

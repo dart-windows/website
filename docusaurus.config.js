@@ -32,6 +32,10 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    "./plugins/clarity.js",
+  ],
+
   presets: [
     [
       'classic',
